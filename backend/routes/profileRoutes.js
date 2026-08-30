@@ -32,7 +32,7 @@ router.put(
       const profile = await getOrCreateProfile();
       
 
-      const { name, role, bio, skills, email, github, linkedin, githubUsername, syncProjectsFromGithub } = req.body;
+      const { name, role, bio, skills, email, phone, github, linkedin, githubUsername, syncProjectsFromGithub } = req.body;
       if (name !== undefined) profile.name = name;
       if (role !== undefined) profile.role = role;
       if (bio !== undefined) profile.bio = bio;
