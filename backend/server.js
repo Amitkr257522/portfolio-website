@@ -35,6 +35,13 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Portfolio server running at http://localhost:${PORT}`);
-});
+// On Vercel, the file is imported as a serverless function — it must export
+// the app instead of calling listen(). Locally (npm run dev/start), we still
+// want a normal listening server.
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Portfolio server running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
