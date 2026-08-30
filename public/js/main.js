@@ -49,15 +49,20 @@ async function loadProfile() {
       resumeDownloadLink.style.display = 'inline-block';
     }
 
-    // Contact links
+    // Contact links — email gets its own line on top, everything else below
     const contactLinks = document.getElementById('contactLinks');
-    let html = '';
-    if (p.email) html += `<a href="mailto:${p.email}">${escapeHtml(p.email)}</a>`;
-    if (p.phone) html += `<a href="tel:${p.phone.replace(/\s+/g, '')}">${escapeHtml(p.phone)}</a>`;
-    if (p.github) html += `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`;
-    if (p.linkedin) html += `<a href="${p.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`;
-    contactLinks.innerHTML = html;
+    let emailHtml = '';
+    if (p.email) emailHtml = `<a href="mailto:${p.email}" class="contact-email">${escapeHtml(p.email)}</a>`;
 
+    let restHtml = '';
+    if (p.phone) restHtml += `<a href="tel:${p.phone.replace(/\s+/g, '')}">${escapeHtml(p.phone)}</a>`;
+    if (p.github) restHtml += `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`;
+    if (p.linkedin) restHtml += `<a href="${p.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`;
+
+    contactLinks.innerHTML = `
+      <div class="contact-email-row">${emailHtml}</div>
+      <div class="contact-rest-row">${restHtml}</div>
+    `;
     // Terminal typing effect
     await typeText(document.getElementById('typedName'), (p.name || '').toLowerCase().replace(/\s+/g, '-'));
     await typeText(document.getElementById('typedRole'), p.role || '');
