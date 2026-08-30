@@ -6,6 +6,7 @@ const profileSchema = new mongoose.Schema({
   bio: { type: String, default: "I design, build, and ship web applications." },
   skills: { type: [String], default: [] },
   email: { type: String, default: '' },
+  phone: { type: String, default: '' },
   github: { type: String, default: '' },
   linkedin: { type: String, default: '' },
   // If set and syncProjectsFromGithub is true, the public site's Projects

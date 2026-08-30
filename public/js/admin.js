@@ -100,6 +100,7 @@ async function loadProfileIntoForm() {
     document.getElementById('pBio').value = p.bio || '';
     document.getElementById('pSkills').value = (p.skills || []).join(', ');
     document.getElementById('pEmail').value = p.email || '';
+    document.getElementById('pPhone').value = p.phone || '';
     document.getElementById('pGithub').value = p.github || '';
     document.getElementById('pLinkedin').value = p.linkedin || '';
     document.getElementById('pGithubUsername').value = p.githubUsername || '';
@@ -143,6 +144,7 @@ document.getElementById('profileForm').addEventListener('submit', async (e) => {
   formData.append('bio', document.getElementById('pBio').value.trim());
   formData.append('skills', document.getElementById('pSkills').value.trim());
   formData.append('email', document.getElementById('pEmail').value.trim());
+  formData.append('phone', document.getElementById('pPhone').value.trim());
   formData.append('github', document.getElementById('pGithub').value.trim());
   formData.append('linkedin', document.getElementById('pLinkedin').value.trim());
   formData.append('githubUsername', document.getElementById('pGithubUsername').value.trim());

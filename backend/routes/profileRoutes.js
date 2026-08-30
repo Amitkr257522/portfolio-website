@@ -30,6 +30,7 @@ router.put(
   async (req, res) => {
     try {
       const profile = await getOrCreateProfile();
+      
 
       const { name, role, bio, skills, email, github, linkedin, githubUsername, syncProjectsFromGithub } = req.body;
       if (name !== undefined) profile.name = name;
@@ -39,6 +40,7 @@ router.put(
         profile.skills = skills.split(',').map(s => s.trim()).filter(Boolean);
       }
       if (email !== undefined) profile.email = email;
+      if (phone !== undefined) profile.phone = phone;
       if (github !== undefined) profile.github = github;
       if (linkedin !== undefined) profile.linkedin = linkedin;
       if (githubUsername !== undefined) profile.githubUsername = githubUsername.trim();

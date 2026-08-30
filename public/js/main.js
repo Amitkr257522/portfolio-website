@@ -37,18 +37,23 @@ async function loadProfile() {
       avatarWrap.innerHTML = `<img src="${p.photo}" alt="${escapeHtml(p.name)}" class="avatar" />`;
     }
 
-    // Resume button
+    // Resume buttons — one to view (opens in a new tab), one to download
     if (p.resume) {
-      const resumeLink = document.getElementById('resumeLink');
-      resumeLink.href = p.resume;
-      resumeLink.setAttribute('download', p.resumeFilename || 'resume.pdf');
-      resumeLink.style.display = 'inline-block';
+      const resumeViewLink = document.getElementById('resumeViewLink');
+      resumeViewLink.href = p.resume;
+      resumeViewLink.style.display = 'inline-block';
+
+      const resumeDownloadLink = document.getElementById('resumeDownloadLink');
+      resumeDownloadLink.href = p.resume;
+      resumeDownloadLink.setAttribute('download', p.resumeFilename || 'resume.pdf');
+      resumeDownloadLink.style.display = 'inline-block';
     }
 
     // Contact links
     const contactLinks = document.getElementById('contactLinks');
     let html = '';
     if (p.email) html += `<a href="mailto:${p.email}">${escapeHtml(p.email)}</a>`;
+    if (p.phone) html += `<a href="tel:${p.phone.replace(/\s+/g, '')}">${escapeHtml(p.phone)}</a>`;
     if (p.github) html += `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`;
     if (p.linkedin) html += `<a href="${p.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`;
     contactLinks.innerHTML = html;
