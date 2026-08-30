@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <span class="logo" id="navLogo">~/portfolio</span>
+      <div class="nav-links">
+        <a href="#about">about</a>
+        <a href="#projects">projects</a>
+        <a href="#certificates">certificates</a>
+        <a href="#contact">contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="about">
+    <div class="hero-inner">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">whoami.sh</span>
+        </div>
+        <div class="terminal-body">
+          <p><span class="prompt">$</span> whoami</p>
+          <p class="typed-line" id="typedName"></p>
+          <p><span class="prompt">$</span> cat role.txt</p>
+          <p class="typed-line" id="typedRole"></p>
+          <p><span class="prompt">$</span> ls skills/</p>
+          <p class="typed-line" id="typedSkills"></p>
+          <p class="cursor-line"><span class="prompt">$</span> <span class="blink">_</span></p>
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <div id="avatarWrap"></div>
+        <span class="eyebrow" id="heroRole">Full-Stack Developer</span>
+        <h1 id="heroName">Building things<br/>that <em>work</em>,<br/>end to end.</h1>
+        <p class="hero-sub" id="heroBio">Loading…</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View projects &darr;</a>
+          <a id="resumeLink" href="#" style="display:none;" class="btn-secondary" download>Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="projects" id="projects">
+      <div class="section-head">
+        <span class="eyebrow">/projects</span>
+        <h2>Selected work</h2>
+      </div>
+      <div id="projectGrid" class="project-grid">
+        <p class="loading">Loading projects…</p>
+      </div>
+    </section>
+
+    <section class="certificates" id="certificates">
+      <div class="section-head">
+        <span class="eyebrow">/certificates</span>
+        <h2>Certifications</h2>
+      </div>
+      <div id="certGrid" class="cert-grid">
+        <p class="loading">Loading certificates…</p>
+      </div>
+    </section>
+
+    <section class="about-block">
+      <div class="about-inner">
+        <span class="eyebrow">/about</span>
+        <h2>How this site is built</h2>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <span class="stack-label">Frontend</span>
+            <p>HTML, CSS, vanilla JavaScript</p>
+          </div>
+          <div class="stack-item">
+            <span class="stack-label">Backend</span>
+            <p>Node.js + Express REST API</p>
+          </div>
+          <div class="stack-item">
+            <span class="stack-label">Database</span>
+            <p>MongoDB — profile, projects, and certificates are all editable from an admin panel, no code changes needed</p>
+          </div>
+          <div class="stack-item">
+            <span class="stack-label">Deployment</span>
+            <p>Vercel</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact" id="contact">
+    <div class="contact-inner">
+      <h2>Let's talk.</h2>
+      <p>Open to full-stack roles and freelance projects.</p>
+      <div class="contact-links" id="contactLinks"></div>
+      <p class="footer-note" id="footerNote">Built from scratch, deployed with pride.</p>
+      <p class="admin-link"><a href="admin.html">admin</a></p>
+    </div>
+  </footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
